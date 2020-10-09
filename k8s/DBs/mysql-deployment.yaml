@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: sdia
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.16.0 (0c01309)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: mysql
+  name: mysql
+spec:
+  selector:
+    matchLabels:
+      io.kompose.service: mysql
+  replicas: 1
+  strategy:
+        type: RollingUpdate
+        rollingUpdate:
+            maxSurge: 50%
+            maxUnavailable: 50%
+  minReadySeconds: 10
+  revisionHistoryLimit: 3
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: mysql
+    spec:
+      containers:
+      - env:
+        - name: MYSQL_DATABASE
+          value: semaphore
+        - name: MYSQL_PASSWORD
+          value: semaphore
+        - name: MYSQL_RANDOM_ROOT_PASSWORD
+          value: "yes"
+        - name: MYSQL_USER
+          value: semaphore
+        image: mysql:5.7
+        name: mysql
+        imagePullPolicy: Always
+        resources: {}
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/mysql/mysql.conf.d/
+          
+      volumes:
+      - name: config-volume
+        configMap:
+          name: mysql-config
+          items:
+            - key: mysqld.cnf
+              path: mysqld.cnf
+              
+              
+              
+              
+      restartPolicy: Always
+status: {}
