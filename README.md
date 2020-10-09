@@ -1,4 +1,4 @@
-# sdia-integration
+# sdia
 This is the integration of the SDIA services as docker conatiners. All components of this architecture are build as docker containers. 
 
 ## Run 
