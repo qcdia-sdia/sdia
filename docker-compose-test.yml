@@ -70,12 +70,12 @@ services:
         - "8082:8082"      
     
       
-  manager:
+  orchestrator:
     depends_on:
       - rabbit
       - mongo
       - sure-tosca
-    image: qcdis/manager 
+    image: qcdis/sdia-orchestrator 
     environment:
       RABBITMQ_HOST: rabbit
       MONGO_HOST: mongo
@@ -101,7 +101,7 @@ services:
     depends_on:
       - rabbit
       - sure-tosca
-    image: qcdis/provisioner 
+    image: qcdis/sdia-provisioner 
     environment:
       RABBITMQ_HOST: rabbit      
       SURE_TOSCA_BASE_PATH: http://sure-tosca:8081/tosca-sure/1.0.0
@@ -112,7 +112,7 @@ services:
     depends_on:
       - rabbit
       - sure-tosca
-    image: qcdis/deployer 
+    image: qcdis/sdia-deployer 
     environment:
       RABBITMQ_HOST: rabbit           
       SURE_TOSCA_BASE_PATH: http://sure-tosca:8081/tosca-sure/1.0.0
