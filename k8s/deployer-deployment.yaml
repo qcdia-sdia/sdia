@@ -35,7 +35,7 @@ spec:
           value: http://sure-tosca:8081/tosca-sure/1.0.0
         - name: SEMAPHORE_BASE_PATH
           value: http://semaphore:3000/api                    
-        image: qcdis/deployer
+        image: qcdis/sdia-deployer
         name: deployer
         imagePullPolicy: Always
         resources: {}

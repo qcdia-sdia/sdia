@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: conf
+  namespace: sdia
   annotations:
     kompose.cmd: kompose convert
     kompose.version: 1.16.0 (0c01309)
@@ -37,7 +37,7 @@ spec:
           value: TOP_SECRET
         - name: CREDENTIAL_SECRET
           value: TOP_SECRET
-        image: qcdis/provisioner
+        image: qcdis/sdia-provisioner
         name: provisioner
         imagePullPolicy: Always
         resources: {}

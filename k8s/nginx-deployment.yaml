@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: conf
+  namespace: sdia
   annotations:
   labels:
     io.kompose.service: nginx

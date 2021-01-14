@@ -7,12 +7,12 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: manager
-  name: manager
+    io.kompose.service: orchestrator
+  name: orchestrator
 spec:
   selector:
     matchLabels:
-      io.kompose.service: manager
+      io.kompose.service: orchestrator
   replicas: 1
   strategy:
         type: RollingUpdate
@@ -25,7 +25,7 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: manager
+        io.kompose.service: orchestrator
     spec:
       containers:
       - env:
@@ -37,8 +37,8 @@ spec:
           value: http://sure-tosca:8081/tosca-sure/1.0.0
         - name: CREDENTIAL_SECRET
           value: TOP_SECRET
-        image: qcdis/manager
-        name: manager
+        image: qcdis/sdia-orchestrator
+        name: orchestrator
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
