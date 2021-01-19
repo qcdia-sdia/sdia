@@ -26,6 +26,8 @@ services:
       MYSQL_DATABASE: semaphore
       MYSQL_USER: semaphore
       MYSQL_PASSWORD: semaphore
+    volumes:
+        - ./mysql.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
     ports:
       - "3306:3306"
 
