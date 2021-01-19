@@ -4,6 +4,11 @@ metadata:
   name: mysql-config
   namespace: sdia
 data:
+  htpasswd: |
+    alogo:$apr1$pbMniSeq$m4PZevv7VLULQLhiD2V2R0
+    conf_user:$apr1$sDBv9ugd$AV7m5Jeg0463jXaBxiZDs.
+    articonf_ui:$apr1$qFaau5L2$xgO53tciXFlrL/Z61nrzP.
+    
   mysqld.cnf: |
     [mysqld]
     pid-file	= /var/run/mysqld/mysqld.pid

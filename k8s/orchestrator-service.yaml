@@ -10,7 +10,12 @@ metadata:
     io.kompose.service: orchestrator
   name: orchestrator
 spec:
-  type: NodePort  
+#  type: NodePort
+#  ports:
+#  - port: 8080
+#    nodePort: 30000
+#    protocol: TCP
+#    name: http
   ports:
   - name: "8080"
     port: 8080

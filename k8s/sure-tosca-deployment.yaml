@@ -28,7 +28,7 @@ spec:
         io.kompose.service: sure-tosca
     spec:
       containers:
-      - image: qcdis/sure-tosca
+      - image: qcdis/sure-tosca:1.0.1
         name: sure-tosca
         imagePullPolicy: Always
         ports:

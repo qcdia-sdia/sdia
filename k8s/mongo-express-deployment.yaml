@@ -23,6 +23,10 @@ spec:
     spec:
       containers:
       - env:
+        #- name: ME_CONFIG_BASICAUTH_PASSWORD
+          #value: ZjEwMjhiNmRiNDQ0N2UzMTU5OWFhNjkz
+        #- name: ME_CONFIG_BASICAUTH_USERNAME
+          #value: NGU4NWIwMDM0Njg1ZGRhYjhkMzgyNGQ3
         - name: ME_CONFIG_MONGODB_PORT
           value: "27017"
         - name: ME_CONFIG_MONGODB_SERVER

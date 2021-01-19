@@ -70,12 +70,12 @@ services:
         - "8082:8082"      
     
       
-  manager:
+  orchestrator:
     depends_on:
       - rabbit
       - mongo
       - sure-tosca
-    image: qcdis/manager 
+    image: qcdis/orchestrator
     environment:
       RABBITMQ_HOST: rabbit
       MONGO_HOST: mongo
