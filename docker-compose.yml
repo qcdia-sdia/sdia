@@ -158,7 +158,7 @@ services:
 
   redis:
     image: redis
-    container_name: awx_redis
+    container_name: redis
     restart: unless-stopped
     command: ["/usr/local/etc/redis/redis.conf"]
     volumes:
