@@ -14,6 +14,7 @@ services:
     - "443:443"
 
   rabbit:
+    restart: unless-stopped
     image: rabbitmq:3.8-management
     ports:
       - "5671-5672:5671-5672"
@@ -22,6 +23,7 @@ services:
       - "15671:15671"
 
   mysql:
+    restart: unless-stopped
     image: mysql:5.7
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
@@ -34,6 +36,7 @@ services:
       - "3306:3306"
 
   semaphore:
+    restart: unless-stopped
     image: qcdis/docker_ansible_semaphore:v2.5.1-2.9.9
     environment:
       SEMAPHORE_DB_USER: semaphore
@@ -54,11 +57,13 @@ services:
 
 
   mongo:
+    restart: unless-stopped
     image: mongo:4
     ports:
       - "27017:27017"
 
   mongo-express:
+    restart: unless-stopped
     image: mongo-express
     environment:
         - ME_CONFIG_MONGODB_SERVER=mongo
@@ -74,6 +79,7 @@ services:
 
 
   orchestrator:
+    restart: unless-stopped
     depends_on:
       - rabbit
       - mongo
@@ -88,11 +94,13 @@ services:
       - "8080:8080"
 
   sure-tosca:
+    restart: unless-stopped
     image: qcdis/sure-tosca
     ports:
       - "8081:8081"
 
   planner:
+    restart: unless-stopped
     depends_on:
       - rabbit
       - sure-tosca
@@ -102,6 +110,7 @@ services:
 
 
   provisioner:
+    restart: unless-stopped
     depends_on:
       - rabbit
       - sure-tosca
@@ -114,6 +123,7 @@ services:
 
 
   deployer:
+    restart: unless-stopped
     depends_on:
       - rabbit
       - sure-tosca
