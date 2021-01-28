@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: awx-config
+  namespace: sdia
+data:
+
+  SECRET_KEY:
+    |
+    aabbcc
+
+
+  environment.sh:
+    |
+    DATABASE_USER=awx
+    DATABASE_NAME=awx
+    DATABASE_HOST=postgres
+    DATABASE_PORT=5432
+    DATABASE_PASSWORD=awxpass
+    AWX_ADMIN_USER=admin
+    AWX_ADMIN_PASSWORD=password
+
+  credentials.py:
+    |
+    DATABASES = {
+        'default': {
+            'ATOMIC_REQUESTS': True,
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': "awx",
+            'USER': "awx",
+            'PASSWORD': "awxpass",
+            'HOST': "postgres",
+            'PORT': "5432",
+        }
+    }
+
+    BROKER_URL = 'redis://redis:6379'
+
+    BROADCAST_WEBSOCKET_SECRET = "R3M1V2I6TUY4MVptRmxQOnNaTy13SHdmNyxwQk5NZExvOUJQRkFDN181RmFDenZTRVFJci1oZDlBVzVCaUVkbS4wQ2I4QUdGQWk6S1hMdEgtZGx4U25DaTBvLmsxekNZUURROGN3MGtZOjFVa1NsVXAxTUJyRFI5T3JvZXYuTCw="
+
+    SECRET_KEY = aabbcc

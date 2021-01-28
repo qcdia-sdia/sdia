@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+  namespace: sdia
+data:
+  redis.conf: |
+    port 6379
+    bind 127.0.0.1

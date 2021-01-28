@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: sdia
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.16.0 (0c01309)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: awx-web
+  name: awx-web
+spec:
+  selector:
+    matchLabels:
+      io.kompose.service: awx-web
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: awx-web
+    spec:
+      containers:
+      - image: ansible/awx:15.0.1
+        name: awx-web
+        ports:
+        - containerPort: 8052
+        resources: {}
+        volumeMounts:
+        - mountPath: /etc/tower/
+          name: awx-config-volume
+        - mountPath: /etc/nginx/
+          name: nginx-config-volume
+      hostname: awx-web
+      restartPolicy: Always
+      volumes:
+      - name: nginx-config-volume
+        configMap:
+          name: awx-nginx-config
+          items:
+            - key: nginx.conf
+              path: nginx.conf
+      - name: awx-config-volume
+        configMap:
+          name: awx-config
+          items:
+            - key: SECRET_KEY
+              path: SECRET_KEY
+            - key: credentials.py
+              path: settings.py
+#            - key: credentials.py
+#              path: conf.d/credentials.py
+#            - key: environment.sh
+#              path: conf.d/environment.sh

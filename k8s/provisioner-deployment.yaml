@@ -36,8 +36,8 @@ spec:
         - name: CLOUD_STORM_SECRET
           value: ODlkYjgxM2RhNTAzMjExZTdiYWNhYWQ0
         - name: CREDENTIAL_SECRET
-          value: MGY0MGQ1MDFkYzg5ZGIxYjY4MjQ4MzQz     
-        image: qcdis/sdia-provisioner
+          value: MGY0MGQ1MDFkYzg5ZGIxYjY4MjQ4MzQz
+        image: qcdis/sdia-provisioner:1.0.2
         name: provisioner
         imagePullPolicy: Always
         resources: {}

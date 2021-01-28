@@ -14,13 +14,7 @@ spec:
     matchLabels:
       io.kompose.service: deployer
   replicas: 1
-  strategy:
-        type: RollingUpdate
-        rollingUpdate:
-            maxSurge: 50%
-            maxUnavailable: 50%
-  minReadySeconds: 10
-  revisionHistoryLimit: 3
+  strategy: {}
   template:
     metadata:
       creationTimestamp: null
@@ -29,15 +23,19 @@ spec:
     spec:
       containers:
       - env:
+        - name: AWX_BASE_PATH
+          value: http://web:8052/api/v2
         - name: RABBITMQ_HOST
           value: rabbit
+        - name: SEMAPHORE_BASE_PATH
+          value: http://semaphore:3000/api
         - name: SURE_TOSCA_BASE_PATH
           value: http://sure-tosca:8081/tosca-sure/1.0.0
-        - name: SEMAPHORE_BASE_PATH
-          value: http://semaphore:3000/api                    
-        image: qcdis/sdia-deployer:1.0.1
+        image: qcdis/sdia-deployer:1.0.2
         name: deployer
-        imagePullPolicy: Always
         resources: {}
       restartPolicy: Always
 status: {}
+
+
+

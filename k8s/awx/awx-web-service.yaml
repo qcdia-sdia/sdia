@@ -7,15 +7,14 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: sure-tosca
-  name: sure-tosca
+    io.kompose.service: awx-web
+  name: awx-web
 spec:
   ports:
-  - port: 8081
-    targetPort: 8081
-    protocol: TCP
-    name: http
+  - name: "8052"
+    port: 8052
+    targetPort: 8052
   selector:
-    io.kompose.service: sure-tosca
+    io.kompose.service: awx-web
 status:
   loadBalancer: {}

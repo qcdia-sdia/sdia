@@ -3,19 +3,18 @@ kind: Service
 metadata:
   namespace: sdia
   annotations:
-    kompose.cmd: kompose convert
+    kompose.cmd: kompose --file docker-compose.yml convert
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: sure-tosca
-  name: sure-tosca
+    io.kompose.service: postgres
+  name: postgres
 spec:
   ports:
-  - port: 8081
-    targetPort: 8081
-    protocol: TCP
-    name: http
+  - name: "5432"
+    port: 5432
+    targetPort: 5432
   selector:
-    io.kompose.service: sure-tosca
+    io.kompose.service: postgres
 status:
   loadBalancer: {}

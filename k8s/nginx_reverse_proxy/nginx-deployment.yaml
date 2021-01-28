@@ -25,8 +25,8 @@ spec:
         - containerPort: 443
         volumeMounts:
         - name: config-volume
-          mountPath: /etc/nginx/   
-          
+          mountPath: /etc/nginx/
+
       volumes:
       - name: config-volume
         configMap:
@@ -35,8 +35,8 @@ spec:
             - key: nginx.conf
               path: nginx.conf
             - key: htpasswd
-              path: htpasswd      
+              path: htpasswd
             - key: cert.pem
-              path: cert.pem       
+              path: cert.pem
             - key: privkey.pem
-              path: privkey.pem       
+              path: privkey.pem

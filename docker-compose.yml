@@ -84,7 +84,7 @@ services:
       - rabbit
       - mongo
       - sure-tosca
-    image: qcdis/sdia-orchestrator
+    image: qcdis/sdia-orchestrator:1.0.2
     environment:
       RABBITMQ_HOST: rabbit
       MONGO_HOST: mongo
@@ -104,7 +104,7 @@ services:
     depends_on:
       - rabbit
       - sure-tosca
-    image: qcdis/sdia-infrastructure-planner
+    image: qcdis/sdia-infrastructure-planner:1.0.2
     environment:
       RABBITMQ_HOST: rabbit
 
@@ -114,7 +114,7 @@ services:
     depends_on:
       - rabbit
       - sure-tosca
-    image: qcdis/sdia-provisioner
+    image: qcdis/sdia-provisioner:1.0.2
     environment:
       RABBITMQ_HOST: rabbit
       SURE_TOSCA_BASE_PATH: http://sure-tosca:8081/tosca-sure/1.0.0
@@ -127,7 +127,7 @@ services:
     depends_on:
       - rabbit
       - sure-tosca
-    image: qcdis/sdia-deployer
+    image: qcdis/sdia-deployer:1.0.2
     environment:
       RABBITMQ_HOST: rabbit
       SURE_TOSCA_BASE_PATH: http://sure-tosca:8081/tosca-sure/1.0.0

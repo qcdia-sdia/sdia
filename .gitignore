@@ -1,1 +1,1 @@
-/k8s/nginx-configmap.yaml
+/k8s/nginx_reverse_proxy/nginx-configmap.yaml

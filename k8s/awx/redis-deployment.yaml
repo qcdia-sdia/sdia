@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: sdia
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.16.0 (0c01309)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: redis
+  name: redis
+spec:
+  selector:
+    matchLabels:
+      io.kompose.service: redis
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: redis
+    spec:
+      containers:
+      - image: redis
+        name: redis
+        ports:
+        - containerPort: 6379
+        resources: {}
+
+#        volumeMounts:
+#        - mountPath: /usr/local/etc/redis/
+#          name: redis-config
+#          readOnly: true
+#      restartPolicy: Always
+#      volumes:
+#      - name: config-volume
+#        configMap:
+#          name: redis-config
+#          items:
+#            - key: redis.conf
+#              path: redis.conf
+status: {}
