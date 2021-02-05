@@ -48,9 +48,10 @@ spec:
           items:
             - key: SECRET_KEY
               path: SECRET_KEY
+            - key: environment.sh
+              path: conf.d/environment.sh
             - key: credentials.py
+              path: conf.d/credentials.py
+            - key: settings.py
               path: settings.py
-#            - key: credentials.py
-#              path: conf.d/credentials.py
-#            - key: environment.sh
-#              path: conf.d/environment.sh
+

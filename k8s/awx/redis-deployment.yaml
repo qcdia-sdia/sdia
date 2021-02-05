@@ -28,17 +28,4 @@ spec:
         ports:
         - containerPort: 6379
         resources: {}
-
-#        volumeMounts:
-#        - mountPath: /usr/local/etc/redis/
-#          name: redis-config
-#          readOnly: true
-#      restartPolicy: Always
-#      volumes:
-#      - name: config-volume
-#        configMap:
-#          name: redis-config
-#          items:
-#            - key: redis.conf
-#              path: redis.conf
 status: {}
