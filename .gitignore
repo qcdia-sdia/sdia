@@ -1,1 +1,2 @@
 /k8s/nginx_reverse_proxy/nginx-configmap.yaml
+/environment.sh
