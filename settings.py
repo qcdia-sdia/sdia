@@ -7,7 +7,7 @@ def get_secret():
     if os.path.exists("/etc/tower/SECRET_KEY"):
         return open('/etc/tower/SECRET_KEY', 'rb').read().strip()
 
-
+BROKER_URL = 'redis://redis:6379'
 ADMINS = ()
 
 STATIC_ROOT = '/var/lib/awx/public/static'
@@ -81,6 +81,17 @@ DATABASES = {
         'PORT': os.getenv("DATABASE_PORT", None),
     }
 }
+
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("redis", 6379)],
+        },
+    },
+}
+
 
 if os.getenv("DATABASE_SSLMODE", False):
     DATABASES['default']['OPTIONS'] = {'sslmode': os.getenv("DATABASE_SSLMODE")}

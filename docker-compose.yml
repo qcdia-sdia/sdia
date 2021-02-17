@@ -1,71 +1,68 @@
 version: '3'
 services:
 
-  nginx:
-    image: nginx
-    restart: unless-stopped
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
-      - ./cert.pem:/etc/nginx/cert.pem
-      - ./privkey.pem:/etc/nginx/privkey.pem
-      - ./htpasswd:/etc/nginx/htpasswd
-    ports:
-    - "80:80"
-    - "443:443"
+#  nginx:
+#    image: nginx
+#    restart: unless-stopped
+#    volumes:
+#      - ./nginx.conf:/etc/nginx/nginx.conf
+#      - ./cert.pem:/etc/nginx/cert.pem
+#      - ./privkey.pem:/etc/nginx/privkey.pem
+#      - ./htpasswd:/etc/nginx/htpasswd
+#    ports:
+#    - "80:80"
+#    - "443:443"
 
-  rabbit:
-    restart: unless-stopped
-    hostname: rabbit
-    image: rabbitmq:3.8-management
+#  rabbit:
+#    restart: unless-stopped
+#    hostname: rabbit
+#    image: rabbitmq:3.8-management
+#    ports:
+#      - "5671-5672:5671-5672"
+#      - "15672:15672"
+#      - "4369:4369"
+#      - "15671:15671"
+
+#  mysql:
+#    restart: unless-stopped
+#    image: mysql:5.7
 #    environment:
-#      RABBITMQ_DEFAULT_USER: alogo
-#      RABBITMQ_DEFAULT_PASS: YWVkYzcxZTM4OWZkYTFmYmM3ODg2MzNi
-    ports:
-      - "5671-5672:5671-5672"
-      - "15672:15672"
-      - "4369:4369"
-      - "15671:15671"
-
-  mysql:
-    restart: unless-stopped
-    image: mysql:5.7
-    environment:
-      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
-      MYSQL_DATABASE: semaphore
-      MYSQL_USER: semaphore
-      MYSQL_PASSWORD: semaphore
-    volumes:
-        - ./mysql.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
-    ports:
-      - "3306:3306"
-
-  semaphore:
-    restart: unless-stopped
-    image: qcdis/docker_ansible_semaphore:v2.5.1-2.9.9
-    environment:
-      SEMAPHORE_DB_USER: semaphore
-      SEMAPHORE_DB_PASS: semaphore
-      SEMAPHORE_DB_HOST: mysql
-      SEMAPHORE_DB_PORT: 3306
-      SEMAPHORE_DB: semaphore
-      SEMAPHORE_PLAYBOOK_PATH: /etc/semaphore
-      SEMAPHORE_ADMIN_PASSWORD: password
-      SEMAPHORE_ADMIN_NAME: "Developer"
-      SEMAPHORE_ADMIN_EMAIL: admin@localhost
-      SEMAPHORE_ADMIN: admin
-      SEMAPHORE_WEB_ROOT: http://0.0.0.0:3000
-    ports:
-      - "3000:3000"
-    depends_on:
-      - mysql
-
+#      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+#      MYSQL_DATABASE: semaphore
+#      MYSQL_USER: semaphore
+#      MYSQL_PASSWORD: semaphore
+#    volumes:
+#        - ./mysql.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
+#    ports:
+#      - "3306:3306"
 #
+#  semaphore:
+#    restart: unless-stopped
+#    image: qcdis/docker_ansible_semaphore:v2.5.1-2.9.9
+#    environment:
+#      SEMAPHORE_DB_USER: semaphore
+#      SEMAPHORE_DB_PASS: semaphore
+#      SEMAPHORE_DB_HOST: mysql
+#      SEMAPHORE_DB_PORT: 3306
+#      SEMAPHORE_DB: semaphore
+#      SEMAPHORE_PLAYBOOK_PATH: /etc/semaphore
+#      SEMAPHORE_ADMIN_PASSWORD: password
+#      SEMAPHORE_ADMIN_NAME: "Developer"
+#      SEMAPHORE_ADMIN_EMAIL: admin@localhost
+#      SEMAPHORE_ADMIN: admin
+#      SEMAPHORE_WEB_ROOT: http://0.0.0.0:3000
+#    ports:
+#      - "3000:3000"
+#    depends_on:
+#      - mysql
+
+
 #  mongo:
 #    restart: unless-stopped
 #    image: mongo:4
 #    ports:
 #      - "27017:27017"
-#
+
 #  mongo-express:
 #    restart: unless-stopped
 #    image: mongo-express
@@ -80,7 +77,7 @@ services:
 #        - mongo
 #    ports:
 #        - "8082:8082"
-#
+
 #
 #  orchestrator:
 #    restart: unless-stopped
@@ -88,27 +85,27 @@ services:
 #      - rabbit
 #      - mongo
 #      - sure-tosca
-#    image: qcdis/sdia-orchestrator:1.0.2
+#    image: qcdis/sdia-orchestrator:1.0.3
 #    environment:
 #      RABBITMQ_HOST: rabbit
 #      MONGO_HOST: mongo
 #      SURE_TOSCA_BASE_PATH: http://sure-tosca:8081/tosca-sure/1.0.0
-#      CREDENTIAL_SECRET: top_secret
+#      CREDENTIAL_SECRET: sn7M5MwhUDi7GviSU-0YtNDpgXlKvA4NYHGKBvzToas=
 #    ports:
 #      - "8080:8080"
-#
+
 #  sure-tosca:
 #    restart: unless-stopped
 #    image: qcdis/sure-tosca
 #    ports:
 #      - "8081:8081"
-#
+
 #  planner:
 #    restart: unless-stopped
 #    depends_on:
 #      - rabbit
 #      - sure-tosca
-#    image: qcdis/sdia-infrastructure-planner:1.0.2
+#    image: qcdis/sdia-infrastructure-planner:1.0.3
 #    environment:
 #      RABBITMQ_HOST: rabbit
 
@@ -118,12 +115,12 @@ services:
 #    depends_on:
 #      - rabbit
 #      - sure-tosca
-#    image: qcdis/sdia-provisioner:1.0.2
+#    image: qcdis/sdia-provisioner:1.0.3
 #    environment:
 #      RABBITMQ_HOST: rabbit
 #      SURE_TOSCA_BASE_PATH: http://sure-tosca:8081/tosca-sure/1.0.0
-#      CLOUD_STORM_SECRET: 456
-#      CREDENTIAL_SECRET: top_secret
+#      CLOUD_STORM_SECRET: sn7M5MwhUDi7GviSU-0YtNDpgXlKvA4NYHGKBvzToas=
+#      CREDENTIAL_SECRET: sn7M5MwhUDi7GviSU-0YtNDpgXlKvA4NYHGKBvzToas=
 #
 #
 #  deployer:
@@ -131,64 +128,66 @@ services:
 #    depends_on:
 #      - rabbit
 #      - sure-tosca
-#    image: qcdis/sdia-deployer:1.0.2
+#    image: qcdis/sdia-deployer:1.0.3
 #    environment:
 #      RABBITMQ_HOST: rabbit
 #      SURE_TOSCA_BASE_PATH: http://sure-tosca:8081/tosca-sure/1.0.0
 #      SEMAPHORE_BASE_PATH: http://semaphore:3000/api
 #      AWX_BASE_PATH: http://awx-web:8052/api/v2
-#
-#
-#  awx-web:
-#    image: ansible/awx:15.0.1
-#    container_name: awx-web
-#    depends_on:
-#      - redis
-#      - postgres
-#    ports:
-#      - "8052:8052"
-#    hostname: awx-web
-#    user: root
-#    restart: unless-stopped
-#    volumes:
-#      - "./SECRET_KEY:/etc/tower/SECRET_KEY"
-#      - "./environment.sh:/etc/tower/conf.d/environment.sh"
-#      - "./credentials.py:/etc/tower/conf.d/credentials.py"
-#      - "./awx_nginx.conf:/etc/nginx/nginx.conf:ro"
-#
-#  awx-task:
-#    image: ansible/awx:15.0.1
-#    container_name: awx-task
-#    depends_on:
-#      - redis
-#      - awx-web
-#      - postgres
-#    command: /usr/bin/launch_awx_task.sh
-#    hostname: awx-task
-#    user: root
-#    restart: unless-stopped
-#    volumes:
-#      - "./SECRET_KEY:/etc/tower/SECRET_KEY"
-#      - "./environment.sh:/etc/tower/conf.d/environment.sh"
-#      - "./credentials.py:/etc/tower/conf.d/credentials.py"
-#      - ./settings.py:/etc/tower/settings.py
-#    environment:
-#      SUPERVISOR_WEB_CONFIG_PATH: '/etc/supervisord.conf'
-#
-#  redis:
-#    image: redis
-#    container_name: redis
-#    restart: unless-stopped
-#    ports:
-#    - 6379:6379
-#    volumes:
-#      - "./redis.conf:/usr/local/etc/redis/redis.conf:ro"
-#
-#  postgres:
-#    image: postgres:10
-#    container_name: awx_postgres
-#    restart: unless-stopped
-#    environment:
-#      POSTGRES_USER: awx
-#      POSTGRES_PASSWORD: awxpass
-#      POSTGRES_DB: awx
+#      CREDENTIAL_SECRET: sn7M5MwhUDi7GviSU-0YtNDpgXlKvA4NYHGKBvzToas=
+
+
+  web:
+    image: ansible/awx:15.0.1
+    container_name: awx_web
+    depends_on:
+      - redis
+      - postgres
+    ports:
+      - "8052:8052"
+    hostname: awxweb
+    user: root
+    restart: unless-stopped
+    volumes:
+      - "./SECRET_KEY:/etc/tower/SECRET_KEY"
+      - "./environment.sh:/etc/tower/conf.d/environment.sh"
+      - "./credentials.py:/etc/tower/conf.d/credentials.py"
+      - "./nginx.conf:/etc/nginx/nginx.conf:ro"
+      - ./settings.py:/etc/tower/settings.py
+
+  awx-task:
+    image: ansible/awx:15.0.1
+    container_name: awx-task
+    depends_on:
+      - redis
+      - web
+      - postgres
+    command: /usr/bin/launch_awx_task.sh
+    hostname: awx-task
+    user: root
+    restart: unless-stopped
+    volumes:
+      - "./SECRET_KEY:/etc/tower/SECRET_KEY"
+      - "./environment.sh:/etc/tower/conf.d/environment.sh"
+      - "./credentials.py:/etc/tower/conf.d/credentials.py"
+      - ./settings.py:/etc/tower/settings.py
+    environment:
+      SUPERVISOR_WEB_CONFIG_PATH: '/etc/supervisord.conf'
+
+  redis:
+    image: redis
+    container_name: redis
+    restart: unless-stopped
+    command: ["/usr/local/etc/redis/redis.conf"]
+    volumes:
+      - "./redis.conf:/usr/local/etc/redis/redis.conf:ro"
+
+
+  postgres:
+    image: postgres:10
+    container_name: awx_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: awx
+      POSTGRES_PASSWORD: awxpass
+      POSTGRES_DB: awx

@@ -94,7 +94,7 @@ data:
                 proxy_set_header Connection $connection_upgrade;
             }
 
-            location / {
+            location /awx {
                 # Add trailing / if missing
                 rewrite ^(.*)$http_host(.*[^/])$ $1$http_host$2/ permanent;
                 uwsgi_read_timeout 120s;

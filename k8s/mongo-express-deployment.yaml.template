@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: conf
+  namespace: sdia
   annotations:
     kompose.cmd: kompose convert
     kompose.version: 1.16.0 (0c01309)
