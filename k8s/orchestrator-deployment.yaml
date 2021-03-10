@@ -37,7 +37,7 @@ spec:
           value: http://sure-tosca:8081/tosca-sure/1.0.0
         - name: CREDENTIAL_SECRET
           value: MGY0MGQ1MDFkYzg5ZGIxYjY4MjQ4MzQz
-        image: qcdis/sdia-orchestrator:1.0.2
+        image: qcdis/sdia-orchestrator:1.0.3
         name: orchestrator
         imagePullPolicy: Always
         ports:
