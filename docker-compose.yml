@@ -85,7 +85,7 @@ services:
       - rabbit
       - mongo
       - sure-tosca
-    image: qcdis/sdia-orchestrator:1.0.3
+    image: qcdis/sdia-orchestrator:1.0.4
     environment:
       RABBITMQ_HOST: rabbit
       MONGO_HOST: mongo
