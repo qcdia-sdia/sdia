@@ -23,8 +23,12 @@ spec:
     spec:
       containers:
       - env:
+        - name: AWX_USERNAME
+          value: N2M0YjM4MzhmOWU0MDU4MzkxZTRkNGE3
         - name: AWX_BASE_PATH
-          value: http://web:8052/api/v2
+          value: https://fry.lab.uvalight.net:8052
+        - name: AWX_ADMIN_PASSWORD
+          value: NDViYjdmNjBmMTE5NWI4MGQyNTZmMDhh
         - name: RABBITMQ_HOST
           value: rabbit
         - name: SEMAPHORE_BASE_PATH
@@ -33,7 +37,7 @@ spec:
           value: http://sure-tosca:8081/tosca-sure/1.0.0
         - name: CREDENTIAL_SECRET
           value: MGY0MGQ1MDFkYzg5ZGIxYjY4MjQ4MzQz
-        image: qcdis/sdia-deployer:1.0.3
+        image: qcdis/sdia-deployer:1.0.4
         name: deployer
         resources: {}
       restartPolicy: Always
