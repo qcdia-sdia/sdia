@@ -40,8 +40,8 @@ spec:
         configMap:
           name: awx-nginx-config
           items:
-            - key: nginx.conf
-              path: nginx.conf
+            - key: sdia_nginx.conf
+              path: sdia_nginx.conf
       - name: awx-config-volume
         configMap:
           name: awx-config
