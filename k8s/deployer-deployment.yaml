@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: sdia-lw
+  namespace: sdia-ai
   annotations:
     kompose.cmd: kompose convert
     kompose.version: 1.16.0 (0c01309)
@@ -31,15 +31,13 @@ spec:
           value: NDViYjdmNjBmMTE5NWI4MGQyNTZmMDhh
         - name: RABBITMQ_HOST
           value: rabbit
-        - name: SEMAPHORE_BASE_PATH
-          value: http://semaphore:3000/api
         - name: SURE_TOSCA_BASE_PATH
           value: http://sure-tosca:8081/tosca-sure/1.0.0
         - name: CREDENTIAL_SECRET
           value: 5Y-ABHuVBjls_Iui4faIU1Yoc2FRf5cjpQU5x5FJ1fI=
         - name: DELETE_TEMPLATES_AFTER_EXECUTION
           value: "False"
-        image: qcdis/sdia-deployer:1.0.4
+        image: qcdis/sdia-deployer:1.0.5
         name: deployer
         imagePullPolicy: Always
         resources: {}

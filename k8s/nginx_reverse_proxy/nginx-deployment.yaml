@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: sdia-lw
+  namespace: sdia-ai
   annotations:
   labels:
     io.kompose.service: nginx
@@ -32,11 +32,11 @@ spec:
         configMap:
           name: nginx-config
           items:
-            - key: sdia_nginx.conf
-              path: sdia_nginx.conf
-            - key: sdia_htpasswd
-              path: sdia_htpasswd
-            - key: sdia_cert.pem
-              path: sdia_cert.pem
-            - key: sdia_privkey.pem
-              path: sdia_privkey.pem
+            - key: nginx.conf
+              path: nginx.conf
+            - key: htpasswd
+              path: htpasswd
+            - key: cert.pem
+              path: cert.pem
+            - key: privkey.pem
+              path: privkey.pem

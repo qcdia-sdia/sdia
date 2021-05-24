@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: sdia-lw
+  namespace: sdia-ai
   annotations:
     kompose.cmd: kompose convert
     kompose.version: 1.16.0 (0c01309)
@@ -40,8 +40,8 @@ spec:
         configMap:
           name: awx-nginx-config
           items:
-            - key: sdia_nginx.conf
-              path: sdia_nginx.conf
+            - key: nginx.conf
+              path: nginx.conf
       - name: awx-config-volume
         configMap:
           name: awx-config

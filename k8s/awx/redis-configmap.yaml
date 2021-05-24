@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: nginx-config
-  namespace: sdia-lw
+  namespace: sdia-ai
 data:
   redis.conf: |
     port 6379

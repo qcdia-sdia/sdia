@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: mysql-config
-  namespace: sdia-lw
+  namespace: sdia-ai
 data:
   htpasswd: |
     alogo:$apr1$pbMniSeq$m4PZevv7VLULQLhiD2V2R0

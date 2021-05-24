@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: sdia-lw
+  namespace: sdia-ai
   annotations:
     kompose.cmd: kompose convert
     kompose.version: 1.16.0 (0c01309)
@@ -10,16 +10,16 @@ metadata:
     io.kompose.service: orchestrator
   name: orchestrator
 spec:
-  type: NodePort
-  ports:
-  - port: 8080
-    nodePort: 30003
-    protocol: TCP
-    name: http
+#  type: NodePort
 #  ports:
-#  - name: "8080"
-#    port: 8080
-#    targetPort: 8080
+#  - port: 8080
+#    nodePort: 30003
+#    protocol: TCP
+#    name: http
+  ports:
+  - name: "8080"
+    port: 8080
+    targetPort: 8080
   selector:
     io.kompose.service: orchestrator
 status:
