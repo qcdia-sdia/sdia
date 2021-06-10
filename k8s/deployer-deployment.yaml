@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: sdia-ai
+  namespace: conf
   annotations:
     kompose.cmd: kompose convert
     kompose.version: 1.16.0 (0c01309)
@@ -37,7 +37,7 @@ spec:
           value: 5Y-ABHuVBjls_Iui4faIU1Yoc2FRf5cjpQU5x5FJ1fI=
         - name: DELETE_TEMPLATES_AFTER_EXECUTION
           value: "False"
-        image: qcdis/sdia-deployer:1.0.5
+        image: qcdis/sdia-deployer:1.0.6
         name: deployer
         imagePullPolicy: Always
         resources: {}

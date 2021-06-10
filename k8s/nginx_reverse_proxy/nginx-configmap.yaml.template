@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: nginx-config
-  namespace: sdia-ai
+  namespace: conf
 data:
   htpasswd: |
     USER:XXXXXXXXXX

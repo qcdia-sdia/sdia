@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: awx-config
-  namespace: sdia-ai
+  namespace: conf
 data:
 
   SECRET_KEY: |
