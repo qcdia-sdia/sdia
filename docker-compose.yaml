@@ -37,14 +37,14 @@ services:
     ports:
       - "8081:8081"
 
-  planner:
-    restart: unless-stopped
-    depends_on:
-      - rabbit
-      - sure-tosca
-    image: qcdis/sdia-infrastructure-planner:1.0.3
-    environment:
-      RABBITMQ_HOST: rabbit
+#  planner:
+#    restart: unless-stopped
+#    depends_on:
+#      - rabbit
+#      - sure-tosca
+#    image: qcdis/sdia-infrastructure-planner:1.0.4
+#    environment:
+#      RABBITMQ_HOST: rabbit
 
 
   provisioner:
