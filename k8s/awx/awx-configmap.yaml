@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: awx-config
-  namespace: conf
+  namespace: lw
 data:
 
   SECRET_KEY: |

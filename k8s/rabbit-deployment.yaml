@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: conf
+  namespace: lw
   annotations:
     kompose.cmd: kompose convert
     kompose.version: 1.16.0 (0c01309)
@@ -32,4 +32,3 @@ spec:
         name: rabbit
         resources: {}
       restartPolicy: Always
-status: {}

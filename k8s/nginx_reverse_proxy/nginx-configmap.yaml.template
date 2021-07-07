@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: nginx-config
-  namespace: conf
+  namespace: lw
 data:
   htpasswd: |
     USER:XXXXXXXXXX
