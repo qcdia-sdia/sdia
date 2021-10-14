@@ -26,7 +26,7 @@ spec:
         - name: AWX_USERNAME
           value: N2M0YjM4MzhmOWU0MDU4MzkxZTRkNGE3
         - name: AWX_BASE_PATH
-          value: https://bender.lab.uvalight.net:8052/api/v2
+          value: https://fry.lab.uvalight.net:8052/api/v2
         - name: AWX_PASSWORD
           value: NDViYjdmNjBmMTE5NWI4MGQyNTZmMDhh
         - name: RABBITMQ_HOST

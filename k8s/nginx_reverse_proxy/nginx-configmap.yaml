@@ -6,12 +6,13 @@ metadata:
 data:
   htpasswd: |
     alogo:$apr1$pbMniSeq$m4PZevv7VLULQLhiD2V2R0
-    demo:$apr1$kl9mEQdc$L6zhI5WicmkQpTgo.5.fV1
+    demo:$apr1$j6r61/sm$kHvutgY8FrqcqRSn47hih1
     notebook_user:$apr1$eb.yBBWe$tscJ5po7hI.AyxCEifEU10
     conf_user:$apr1$sDBv9ugd$AV7m5Jeg0463jXaBxiZDs.
     articonf_ui:$apr1$qFaau5L2$xgO53tciXFlrL/Z61nrzP.
     deploy_tester:$apr1$k/SfT3BS$PtccoOeG87XErtNGtyM7r/
     vialog_user:$apr1$rNQiCzLb$MIbUIWHQ1ivalduirc0IG0
+    awx_test:$apr1$SjcMHzPT$GsUJ.fKIMRXgxMoT2f2XO0
 
 
 
@@ -26,10 +27,10 @@ data:
     }
 
     http {
-    proxy_connect_timeout       1200;
-    proxy_send_timeout          1200;
-    proxy_read_timeout          1200;
-    send_timeout                1200;
+    proxy_connect_timeout       2400;
+    proxy_send_timeout          2400;
+    proxy_read_timeout          2400;
+    send_timeout                2400;
 
     tcp_nodelay on;
 
