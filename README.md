@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/{github_id}.svg)](https://zenodo.org/badge/latestdoi/{302353493})
 # sdia
 This is the integration of the SDIA services as docker conatiners. All components of this architecture are build as docker containers. 
 
