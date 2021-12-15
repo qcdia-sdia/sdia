@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: nginx-config
-  namespace: lw
+  namespace: conf
 data:
   htpasswd: |
     alogo:$apr1$pbMniSeq$m4PZevv7VLULQLhiD2V2R0
@@ -86,6 +86,19 @@ data:
         location /orchestrator {
         add_header 'Access-Control-Allow-Origin' *;
         proxy_pass http://orchestrator:8080/orchestrator;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        proxy_buffering off;
+        proxy_request_buffering off;
+        }
+    
+        location /orchestrator-async {
+        add_header 'Access-Control-Allow-Origin' *;
+        proxy_pass http://orchestrator-async:8080/orchestrator;
         proxy_set_header Host $http_host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;

@@ -7,13 +7,13 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: orchestrator
-  name: orchestrator
+    io.kompose.service: orchestrator-async
+  name: orchestrator-async
 spec:
   type: NodePort
   ports:
   - port: 8080
-    nodePort: 30000
+    nodePort: 30001
     protocol: TCP
     name: http
 #  ports:
@@ -21,6 +21,6 @@ spec:
 #    port: 8080
 #    targetPort: 8080
   selector:
-    io.kompose.service: orchestrator
+    io.kompose.service: orchestrator-async
 status:
   loadBalancer: {}
