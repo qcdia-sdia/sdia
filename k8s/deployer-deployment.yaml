@@ -37,7 +37,7 @@ spec:
           value: 5Y-ABHuVBjls_Iui4faIU1Yoc2FRf5cjpQU5x5FJ1fI=
         - name: DELETE_TEMPLATES_AFTER_EXECUTION
           value: "False"
-        image: qcdis/sdia-deployer:1.0.6
+        image: qcdis/sdia-deployer:1.0.8
         name: deployer
         imagePullPolicy: Always
         resources: {}
