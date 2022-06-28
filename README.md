@@ -116,8 +116,3 @@ Now you can test the k8s cluster:
 ```
 kubctl get all 
 ```
-
-
-
-
-
